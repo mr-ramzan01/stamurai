@@ -1,6 +1,6 @@
 import { types } from 'mobx-state-tree';
 
-const TodoModel = types.model('TodoModel', {
+const TaskModel = types.model('TaskModel', {
     id: types.string,
     title: types.string,
     description: types.string,
@@ -12,15 +12,17 @@ const TodoModel = types.model('TodoModel', {
     },
 }));
 
-export const TodoStore = types.model('TodoStore', {
-    todos: types.array(TodoModel)
+export const TaskStore = types.model('TaskStore', {
+    tasks: types.array(TaskModel)
 })
 .actions(el => ({
     addTodo(title:string, description:string) {
         const id = String(Date.now());
-        el.todos.push({ id, title, description, status: false });
+        el.tasks.push({ id, title, description, status: false });
+        // localStorage.setItem('tasks', JSON.stringify(el.tasks))
     },
     removeTodo(todo:any) {
-        el.todos.remove(todo);
+        el.tasks.remove(todo);
+        // localStorage.setItem('tasks', JSON.stringify(el.tasks))
     },
 }));
