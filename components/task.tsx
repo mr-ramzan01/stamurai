@@ -36,7 +36,7 @@ const TaskApp = observer(() => {
   
     return (
       <div className=''>
-          <div style={{boxShadow: 'rgba(0, 0, 0, 0.35) 0px 5px 15px'}} className='p-[10px]  w-[30%] my-[30px] mx-[auto] rounded-lg'>
+          <div style={{boxShadow: 'rgba(0, 0, 0, 0.35) 0px 5px 15px'}} className='p-[10px] w-[50%] lg:w-[30%] sm:w-[60%]  my-[30px] mx-[auto] rounded-lg'>
               <h1 className='text-center text-4xl py-[30px]'>My Task</h1>
               <form onSubmit={handleSubmit} className='p-[10px]' action="">
                   <h5 className="block text-xl py-[10px] font-medium leading-6 text-gray-900">Title <span className='text-red-500'>*</span></h5>
@@ -50,7 +50,7 @@ const TaskApp = observer(() => {
           </div>
           <div className=''>
             {
-              store.tasks.length > 0 ? <div className='p-[30px] grid grid-cols-4 gap-4'>
+              store.tasks.length > 0 ? <div className='p-[30px] grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4'>
               {store.tasks.map((task) => (
                   <div className='border border-solid border-gray-100 relative p-[10px] shadow-md rounded' key={task.id}>
                       <h3 className='text-center text-2xl mb-[10px]'>{task.title}</h3>
