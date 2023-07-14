@@ -16,12 +16,16 @@ export const TaskStore = types.model('TaskStore', {
     tasks: types.array(TaskModel)
 })
 .actions(el => ({
-    addTodo(title:string, description:string) {
+
+    // adding tasks
+    addTask(title:string, description:string) {
         const id = String(Date.now());
         el.tasks.push({ id, title, description, status: false });
         // localStorage.setItem('tasks', JSON.stringify(el.tasks))
     },
-    removeTodo(todo:any) {
+
+    //removing tasks
+    removeTask(todo:any) {
         el.tasks.remove(todo);
         // localStorage.setItem('tasks', JSON.stringify(el.tasks))
     },
